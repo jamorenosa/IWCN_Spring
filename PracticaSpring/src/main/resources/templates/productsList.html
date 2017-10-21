@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="utf-8"/>
+<style>
+td{
+  margin: 5%;
+}
+</style>
+
+</head>
+
+<body>
+<table border="1">
+  <tr><td colspan="4" style="text-align:center">Listado de Productos</td></tr>
+  <tr th:each="product,pos : ${productList}">
+    <td th:text="${product.Name()}">Nombre del Producto</td>
+    <td><a th:href="@{/showProduct(index=${pos.index})}">Mostrar</a></td>
+    <td><a th:href="@{/editProduct(index=${pos.index})}">Editar</a></td>
+    <td><a th:href="@{/deleteProduct(index=${pos.index})}">Eliminar</a></td>
+    </tr>
+</table>
+<a href="addProduct">Agregar un nuevo producto</a>
+</body>
+
+</html>
